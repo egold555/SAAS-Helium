@@ -48,7 +48,7 @@ export class MyApp {
     this.submenus1 = [ 
       { title: 'Visa ****3254', component: "SelectCard1" ,icon:"radio-button-on"},
       { title: 'Debit ****9812', component: "SelectCard2" , icon:"radio-button-off"},
-        { title: 'Add Card', component: "AddCard" , icon:"add-circle-outline"},
+        { title: 'Add Card', component: "AddCard" , icon:"add-circle"},
     ];
 
   } 

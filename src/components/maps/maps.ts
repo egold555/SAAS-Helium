@@ -75,6 +75,23 @@ export class MapsComponent implements OnInit{
     return locationObs;
   }
 
+    addPin(map:any, location:any, text:any){
+        let marker = new google.maps.Marker({
+          map: map,
+          animation: google.maps.Animation.DROP,
+          position: location
+        });
+      
+      let infoWindow = new google.maps.InfoWindow({
+      content: text
+    });
+        
+        google.maps.event.addListener(marker, 'click', () => {
+      infoWindow.open(this.map, marker);
+    });
+        
+    }
+    
 
   createMap(location = new google.maps.LatLng(47.6128703,-122.3154972)){
     console.log('init location ' + location)
@@ -86,7 +103,11 @@ export class MapsComponent implements OnInit{
     }
     let mapEl = document.getElementById("map");
     let map = new google.maps.Map(mapEl,mapOptions);
+      
+       this.addPin(map, map.getCenter(), "Test");
 
+    
+      
     return map;
   }
 
