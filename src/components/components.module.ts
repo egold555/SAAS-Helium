@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { MapsComponent } from './maps/maps';
-import { DestAddressComponent } from './dest-address/dest-address';
 @NgModule({
-	declarations: [MapsComponent,
-    DestAddressComponent],
+	declarations: [MapsComponent],
 	imports: [],
-	exports: [MapsComponent,
-    DestAddressComponent]
+	exports: [MapsComponent]
 })
 export class ComponentsModule {}
