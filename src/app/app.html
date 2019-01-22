@@ -1,19 +1,33 @@
 <ion-menu [content]="content" id="menu1">
 
-  <ion-header>
-    <ion-toolbar color="secondary">
-      <ion-title>Menu 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>Settings</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <ion-content>
-    <ion-list>
+    <ion-content>
+        <ion-list>
+            <!--
       <button ion-item menuClose="menu1" detail-none>
         Close Menu 1
       </button>
-    </ion-list>
-  </ion-content>
+-->
+            <button ion-item><ion-icon name="cog"></ion-icon> General</button>
+            <button ion-item><ion-icon name="card"></ion-icon> Payment</button>
+            <button ion-item><ion-icon name="car"></ion-icon> Car Type</button>
+            <button ion-item><ion-icon name="filing"></ion-icon> Work / Home</button>
+            <button ion-item><ion-icon name="contacts"></ion-icon> Friends / Family</button>
+
+        </ion-list>
+
+        <ion-footer class="bar-stable">
+            <button ion-item color="danger" style="left:0;right:0;margin:0; width: 100%;position: fixed;bottom:0;"><ion-icon name="moon"></ion-icon> Logout</button>
+        </ion-footer>
+
+    </ion-content>
 
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav><ion-nav [root]="rootPage"></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage"></ion-nav>
