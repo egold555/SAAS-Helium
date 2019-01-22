@@ -36,18 +36,19 @@ export class MyApp {
     ];
 
     this.mainmenus = [ 
-      { title: 'Car Type', component: "" ,icon:"car"},
-      { title: 'Work / Home', component: "" , icon:"filing"},
-        { title: 'Friends / Family', component: "" , icon:"contacts"},
+      { title: 'Car Type', component: "selectCarPage" ,icon:"car"},
+      { title: 'Work / Home', component: "workHomePage" , icon:"filing"},
+        { title: 'Friends / Family', component: "FriendsFamilyPage" , icon:"contacts"},
     ];
     this.submenus = [ 
-      { title: 'Icon Size', component: "", icon:"contract" },
-      { title: 'Traffic Colors', component: "", icon:"color-palette" },
+      { title: 'Icon Size', component: "IconSizePage", icon:"contract" },
+      { title: 'Traffic Colors', component: "TrafficCOlorsPage", icon:"color-palette" },
       
     ];
     this.submenus1 = [ 
-      { title: 'Visa ****3254', component: "" ,icon:"card"},
-      { title: 'Debit ****9812', component: "" , icon:"card"},
+      { title: 'Visa ****3254', component: "SelectCard1" ,icon:"radio-button-on"},
+      { title: 'Debit ****9812', component: "SelectCard2" , icon:"radio-button-off"},
+        { title: 'Add Card', component: "AddCard" , icon:"add-circle-outline"},
     ];
 
   } 

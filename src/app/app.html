@@ -13,7 +13,9 @@
                 <ion-list style="background: #1370a7;margin:0;">
                     <ion-item text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}" style="margin: 0;color: #fff;background-color: transparent;padding-right: 0px; margin: 0; ">
                         <ion-row style="border-bottom: 1px solid;">
-                            <ion-col col-11 style="line-height: 2;font-size: 16px;"><ion-icon name="cog" style="color:#fff;font-size: 2rem;"></ion-icon> General</ion-col>
+                            <ion-col col-11 style="line-height: 2;font-size: 16px;">
+                                <ion-icon name="cog" style="color:#fff;font-size: 2rem;"></ion-icon> General
+                            </ion-col>
                             <ion-col col-1 *ngIf="sublevel" style="line-height: 2.5;">
                                 <ion-icon style="color:#fff;margin-top: 0px;font-size: 2rem;" item-right [name]="isGroupShown(i) ? 'ios-arrow-down-outline' : 'ios-arrow-forward'"></ion-icon>
                             </ion-col>
@@ -27,11 +29,13 @@
                         </ion-row>
                     </ion-item>
                 </ion-list>
-                
+
                 <ion-list style="background: #1370a7;margin:0;">
                     <ion-item text-wrap (click)="toggleGroup1(i)" [ngClass]="{active: isGroupShown1(i)}" style="margin: 0;color: #fff;background-color: transparent;padding-right: 0px; margin: 0; ">
                         <ion-row style="border-bottom: 1px solid;">
-                            <ion-col col-11 style="line-height: 2;font-size: 16px;"><ion-icon name="card" style="color:#fff;font-size: 2rem;"></ion-icon> Payment</ion-col>
+                            <ion-col col-11 style="line-height: 2;font-size: 16px;">
+                                <ion-icon name="card" style="color:#fff;font-size: 2rem;"></ion-icon> Payment
+                            </ion-col>
                             <ion-col col-1 *ngIf="sublevel" style="line-height: 2.5;">
                                 <ion-icon style="color:#fff;margin-top: 0px;font-size: 2rem;" item-right [name]="isGroupShown1(i) ? 'ios-arrow-down-outline' : 'ios-arrow-forward'"></ion-icon>
                             </ion-col>
@@ -45,15 +49,20 @@
                         </ion-row>
                     </ion-item>
                 </ion-list>
-                
+
                 <ion-list style="background: #1370a7;margin:0;">
                     <button style="background: transparent;color: #fff;" menuClose ion-item *ngFor="let p of mainmenus;let i=index; " (click)="openPage(p)">
                         <ion-icon name="{{p.icon}}" style="color:#fff;font-size: 2rem;"></ion-icon> {{p.title}}
-                        
+
                     </button>
                 </ion-list>
 
-                
+                <ion-footer class="bar-stable">
+                    <button ion-item color="danger" style="left:0;right:0;margin:0; width: 100%;position: fixed;bottom:0;" (click)="logout()">
+                        <ion-icon name="moon"></ion-icon> Logout
+                    </button>
+                </ion-footer>
+
 
 
 
