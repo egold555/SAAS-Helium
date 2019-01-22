@@ -23,9 +23,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  submenus: Array<{title: string, component: any}>;
+  submenus: Array<{title: string, component: any, icon:any}>;
   mainmenus: Array<{title: string, component: any, icon:any}>;
-  mainmenus1: Array<{title: string, component: any, icon:any}>;
   submenus1: Array<{title: string, component: any, icon:any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
@@ -37,22 +36,18 @@ export class MyApp {
     ];
 
     this.mainmenus = [ 
-      { title: 'General', component: "PatientReceptionPage" ,icon:""},
-      { title: 'Payment', component: "PatientReceptionPage" , icon:""},
+      { title: 'Car Type', component: "" ,icon:"car"},
+      { title: 'Work / Home', component: "" , icon:"filing"},
+        { title: 'Friends / Family', component: "" , icon:"contacts"},
     ];
     this.submenus = [ 
-      { title: 'SUB MENU 1', component: "AddBillingCategoryPage" },
-      { title: 'SUB MENU 2', component: "AddSpecialityPage" },
-      { title: 'SUB MENU 3', component: "AddMedicinePage" },
+      { title: 'Icon Size', component: "", icon:"contract" },
+      { title: 'Traffic Colors', component: "", icon:"color-palette" },
       
     ];
-    this.mainmenus1 = [ 
-      { title: 'Work / Home', component: "PatientReceptionPage" ,icon:""},
-      { title: 'Friends / Family', component: "PatientReceptionPage" , icon:""},
-    ];
     this.submenus1 = [ 
-      { title: 'SUB MENU 4', component: "PatientReceptionPage" ,icon:""},
-      { title: 'SUB MENU 5', component: "PatientReceptionPage" , icon:""},
+      { title: 'Visa ****3254', component: "" ,icon:"card"},
+      { title: 'Debit ****9812', component: "" , icon:"card"},
     ];
 
   } 
