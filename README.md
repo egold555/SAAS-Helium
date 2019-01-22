@@ -1,4 +1,4 @@
-# SAAS-Helium
+# Helium
 Helium Group application for innovations 2018-2019.
 
 ## Building
