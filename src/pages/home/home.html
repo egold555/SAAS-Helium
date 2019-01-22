@@ -1,14 +1,28 @@
 <ion-header>
+
   <ion-navbar>
+    <button ion-button [menuToggle]="activeMenu">
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
-      Ionic Blank
+      Menu
     </ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content >
+  <div class="map-wrapper">
+    <maps #map 
+        [isPickupRequested]="isPickupRequested"
+        [destination]="destination">
+    </maps>
+  </div>
+
+    <ion-item class="dest-address">
+      <ion-label><ion-icon name="search"></ion-icon> Enter your destination</ion-label>
+      Enter your destination <ion-input type = "text" [(ngModel)]= "enteredAddress" name="address"></ion-input>
+    </ion-item>
+
+    
 </ion-content>
