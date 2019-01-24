@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { LoadingController, NavController } from 'ionic-angular'
 import { Geolocation } from '@ionic-native/geolocation';
 import { Observable } from 'rxjs/Observable'
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/map';
+import {HeliumData} from './data';
+
 declare var google : any;
 
 @Component({
@@ -16,10 +20,15 @@ export class MapsComponent implements OnInit{
   public map;
   public isMapIdle : boolean;
   public currentLocation;
-
+    
   constructor(public geolocation : Geolocation,
-              public loadingCtrl : LoadingController) {
+              public loadingCtrl : LoadingController, public http: Http) {
     console.log('Hello MapsComponent Component');
+      
+      //console.log(HeliumData.JSON_DATA);
+      
+      
+      
   }
 
   ngOnInit(){
@@ -75,11 +84,12 @@ export class MapsComponent implements OnInit{
     return locationObs;
   }
 
-    addPin(map:any, location:any, text:any){
+    addPin(map:any, location:any, img:any, text:any){
         let marker = new google.maps.Marker({
           map: map,
-          animation: google.maps.Animation.DROP,
-          position: location
+        //  animation: google.maps.Animation.DROP,
+          position: location,
+            icon: 'http://10.10.193.114:8080/icons/' + img + '.png'
         });
       
       let infoWindow = new google.maps.InfoWindow({
@@ -89,6 +99,8 @@ export class MapsComponent implements OnInit{
         google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
     });
+        
+        //console.log("Pin added: " + JSON.stringify(location))
         
     }
     
@@ -104,12 +116,32 @@ export class MapsComponent implements OnInit{
     let mapEl = document.getElementById("map");
     let map = new google.maps.Map(mapEl,mapOptions);
       
-       this.addPin(map, map.getCenter(), "Test");
+    this.addPin(map, map.getCenter(), "default", "You");
 
-    
+//    for(var x = 0; x < 10; x++){
+//        for(var y = 0; y < 10; y++){
+//            this.addPin(map, new google.maps.LatLng(47.6128703 + x,-122.3154972 + y), "TESTING")
+//        }
+//    }
+      var self = this; //https://stackoverflow.com/questions/29626729/how-to-function-call-using-this-inside-foreach-loop
+      JSON.parse(HeliumData.JSON_DATA).forEach(function(obj) { 
+          //console.log(obj.X + " " + obj.Y + " " ); 
+          //console.log("--------------------------"); 
+          let icon = "pickup";
+          let text = obj.UNITDESC;
+          if(self.randomInt(0, 10) == 0){
+              icon += "_premium"
+              text = "*Premium* " + text;
+          }
+          self.addPin(map, new google.maps.LatLng(obj.Y, obj.X), icon, text);
+      });
       
     return map;
   }
+    
+     randomInt(min, max){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+     }
 
   centerLocation(location){
     if(location){

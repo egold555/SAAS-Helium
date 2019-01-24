@@ -11,6 +11,8 @@ import { LoginPage } from '../pages/login/login';
 
 import { MapsComponent } from '../components/maps/maps';
 
+import {HttpModule} from '@angular/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,6 +22,7 @@ import { MapsComponent } from '../components/maps/maps';
   ],
   imports: [
     BrowserModule,
+      HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
