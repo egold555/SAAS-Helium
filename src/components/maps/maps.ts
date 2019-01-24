@@ -125,7 +125,7 @@ export class MapsComponent implements OnInit{
           //console.log("--------------------------"); 
           let icon = "spots/";
           
-          let randomIconNumber = self.randomInt(1, 12);
+          let randomIconNumber = self.randomInt(1, 8);
           
           let text = obj.UNITDESC;
           
@@ -133,50 +133,34 @@ export class MapsComponent implements OnInit{
               icon+= "parking";
           }
           else if(randomIconNumber == 2){
-              icon+= "parking_bicycle";
-          }
-          else if(randomIconNumber == 3){
               icon+= "parking_disabled";
           }
-          else if(randomIconNumber == 4){
+          else if(randomIconNumber == 3){
               icon+= "parking_garage";
           }
-          else if(randomIconNumber == 5){
+          else if(randomIconNumber == 4){
               icon+= "premium_parking";
               text = "<b>Premium</b> " + text;
           }
-          else if(randomIconNumber == 6){
-              icon+= "premium_parking_bicycle";
-              text = "<b>Premium</b> " + text;
-          }
-          else if(randomIconNumber == 7){
-              icon+= "premium_parking_disabled";
-              text = "<b>Premium</b> " + text;
-          }
-          else if(randomIconNumber == 8){
+          else if(randomIconNumber == 5){
               icon+= "premium_parking_garage";
               text = "<b>Premium</b> " + text;
           }
-          else if(randomIconNumber == 9){
+          else if(randomIconNumber == 6){
               icon+= "taken_parking";
               text = "<b>TAKEN</b> " + text;
           }
-          else if(randomIconNumber == 10){
-              icon+= "taken_parking_bicycle";
-              text = "<b>TAKEN</b> " + text;
-          }
-          else if(randomIconNumber == 11){
+          else if(randomIconNumber == 7){
               icon+= "taken_parking_disabled";
               text = "<b>TAKEN</b> " + text;
           }
-          else if(randomIconNumber == 12){
+          else if(randomIconNumber == 8){
               icon+= "taken_parking_garage";
               text = "<b>TAKEN</b> " + text;
           }
           
-          
-          
-          
+          text += "<br><br>";
+          text += '<button style="outline: none; height: 40px; text-align: center; width: 130px; border-radius: 40px; background: #fff; border: 2px solid white; color: white; background: black; letter-spacing: 1px; text-shadow: 0; font-size: 12px; font-weight: bold; cursor: pointer; transition: all 0.25s ease; ">Reserve</button>'; //Eww inline css. Yeah I know. GoogleMapsAPI does not take css from the main app into account.
           
           self.addPin(map, new google.maps.LatLng(obj.Y, obj.X), icon, text);
       });

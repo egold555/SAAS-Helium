@@ -15,6 +15,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   shownGroup = null;
   shownGroup1 = null;
+    shownGroup2 = null;
 
   sublevel='yes';
   sublevel1='no';
@@ -27,7 +28,8 @@ export class MyApp {
   submenus: Array<{title: string, component: any, icon:any}>;
   mainmenus: Array<{title: string, component: any, icon:any}>;
   submenus1: Array<{title: string, component: any, icon:any}>;
-
+submenus2: Array<{title: string, component: any, icon:any}>;
+    
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
@@ -37,8 +39,7 @@ export class MyApp {
     ];
 
     this.mainmenus = [ 
-      { title: 'Car Type', component: "selectCarPage" ,icon:"car"},
-      { title: 'Work / Home', component: "workHomePage" , icon:"filing"},
+//      { title: 'Work / Home', component: "workHomePage" , icon:"filing"},
         { title: 'Friends / Family', component: "FriendsFamilyPage" , icon:"contacts"},
     ];
     this.submenus = [ 
@@ -50,6 +51,13 @@ export class MyApp {
       { title: 'Visa ****3254', component: "SelectCard1" ,icon:"radio-button-on"},
       { title: 'Debit ****9812', component: "SelectCard2" , icon:"radio-button-off"},
         { title: 'Add Card', component: "AddCard" , icon:"add-circle"},
+    ];
+      this.submenus2 = [ 
+      { title: 'Small Car', component: "SelectCar1" ,icon:"radio-button-on"},
+      { title: 'Medium Car', component: "SelectCar2" , icon:"radio-button-off"},
+      { title: 'Large Car', component: "SelectCar3" , icon:"radio-button-off"},
+//      { title: 'Horse', component: "SelectCar4" , icon:"radio-button-off"},
+
     ];
 
   } 
@@ -89,11 +97,26 @@ export class MyApp {
   isGroupShown1(group) {
       return this.shownGroup1 === group;
   }
+    
+  toggleGroup2(group) {
+    console.log("Group  "+group);
+    if (this.isGroupShown2(group)) {
+        this.shownGroup2 = null;
+
+    } else {
+        this.shownGroup2 = group;
+        this.shownGroup = null;
+    }
+  }
+  isGroupShown2(group) {
+      return this.shownGroup2 === group;
+  }
 
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    //this.nav.setRoot(page.component);
+      console.log("CallFunction page: " + page)
   }
     
     logout(){

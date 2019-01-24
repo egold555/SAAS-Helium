@@ -49,6 +49,26 @@
                         </ion-row>
                     </ion-item>
                 </ion-list>
+                
+                <ion-list style="background: #1370a7;margin:0;">
+                    <ion-item text-wrap (click)="toggleGroup2(i)" [ngClass]="{active: isGroupShown2(i)}" style="margin: 0;color: #fff;background-color: transparent;padding-right: 0px; margin: 0; ">
+                        <ion-row style="border-bottom: 1px solid;">
+                            <ion-col col-11 style="line-height: 2;font-size: 16px;">
+                                <ion-icon name="car" style="color:#fff;font-size: 2rem;"></ion-icon> Car Type
+                            </ion-col>
+                            <ion-col col-1 *ngIf="sublevel" style="line-height: 2.5;">
+                                <ion-icon style="color:#fff;margin-top: 0px;font-size: 2rem;" item-right [name]="isGroupShown2(i) ? 'ios-arrow-down-outline' : 'ios-arrow-forward'"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row *ngIf="isGroupShown2(i)">
+                            <ion-list style="background: #1370a7;width: 100%;">
+                                <button style="background: transparent;color: #fff;" menuClose ion-item *ngFor="let p of submenus2" (click)="openPage(p)">
+                                    <ion-icon name="{{p.icon}}" style="color:#fff;font-size: 2rem;"></ion-icon> {{p.title}}
+                                </button>
+                            </ion-list>
+                        </ion-row>
+                    </ion-item>
+                </ion-list>
 
                 <ion-list style="background: #1370a7;margin:0;">
                     <button style="background: transparent;color: #fff;" menuClose ion-item *ngFor="let p of mainmenus;let i=index; " (click)="openPage(p)">
