@@ -6,6 +6,10 @@
         </div>
         <div class="inputs">
             <ion-item>
+                <ion-label fixed>Full Name</ion-label>
+                <ion-input type="text" class="disabledTextbox"></ion-input>
+            </ion-item>
+            <ion-item>
                 <ion-label fixed>Email</ion-label>
                 <ion-input type="text" class="disabledTextbox"></ion-input>
             </ion-item>
@@ -13,9 +17,8 @@
                 <ion-label fixed>Password</ion-label>
                 <ion-input type="password" class="disabledTextbox"></ion-input>
             </ion-item>
-            <button ion-button block (click)="login()"><b>Login</b></button>
-            <p>Don't have a account? <b><a (click)="signup()">Create One</a></b></p>
-            <p>Forgot your Login details? <b><a (click)="forgot()">Click Here</a></b></p>
+            <button ion-button block (click)="signup()"><b>Signup</b></button>
+            <p>Have a account? <b><a (click)="login()">Sign In</a></b></p>
         </div>
     </div>
 </ion-content>

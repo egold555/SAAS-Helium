@@ -1,4 +1,4 @@
-<ion-menu [content]="content" [swipeEnabled]="false">
+<ion-menu [content]="content" [swipeEnabled]="false" id="menu1">
     <ion-header>
         <ion-toolbar>
             <ion-title>Settings</ion-title>
@@ -58,7 +58,7 @@
                 </ion-list>
 
                 <ion-footer class="bar-stable">
-                    <button ion-item color="danger" style="left:0;right:0;margin:0; width: 100%;position: fixed;bottom:0;" (click)="logout()">
+                    <button menuClose="menu1" ion-item color="danger" style="left:0;right:0;margin:0; width: 100%;position: fixed;bottom:0;" (click)="logout()">
                         <ion-icon name="moon"></ion-icon> Logout
                     </button>
                 </ion-footer>

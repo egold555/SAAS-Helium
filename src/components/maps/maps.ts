@@ -25,10 +25,6 @@ export class MapsComponent implements OnInit{
               public loadingCtrl : LoadingController, public http: Http) {
     console.log('Hello MapsComponent Component');
       
-      //console.log(HeliumData.JSON_DATA);
-      
-      
-      
   }
 
   ngOnInit(){
@@ -116,7 +112,7 @@ export class MapsComponent implements OnInit{
     let mapEl = document.getElementById("map");
     let map = new google.maps.Map(mapEl,mapOptions);
       
-    this.addPin(map, map.getCenter(), "default", "You");
+    this.addPin(map, map.getCenter(), "you", "You");
 
 //    for(var x = 0; x < 10; x++){
 //        for(var y = 0; y < 10; y++){
@@ -127,12 +123,61 @@ export class MapsComponent implements OnInit{
       JSON.parse(HeliumData.JSON_DATA).forEach(function(obj) { 
           //console.log(obj.X + " " + obj.Y + " " ); 
           //console.log("--------------------------"); 
-          let icon = "pickup";
+          let icon = "spots/";
+          
+          let randomIconNumber = self.randomInt(1, 12);
+          
           let text = obj.UNITDESC;
-          if(self.randomInt(0, 10) == 0){
-              icon += "_premium"
-              text = "*Premium* " + text;
+          
+          if(randomIconNumber == 1){
+              icon+= "parking";
           }
+          else if(randomIconNumber == 2){
+              icon+= "parking_bicycle";
+          }
+          else if(randomIconNumber == 3){
+              icon+= "parking_disabled";
+          }
+          else if(randomIconNumber == 4){
+              icon+= "parking_garage";
+          }
+          else if(randomIconNumber == 5){
+              icon+= "premium_parking";
+              text = "<b>Premium</b> " + text;
+          }
+          else if(randomIconNumber == 6){
+              icon+= "premium_parking_bicycle";
+              text = "<b>Premium</b> " + text;
+          }
+          else if(randomIconNumber == 7){
+              icon+= "premium_parking_disabled";
+              text = "<b>Premium</b> " + text;
+          }
+          else if(randomIconNumber == 8){
+              icon+= "premium_parking_garage";
+              text = "<b>Premium</b> " + text;
+          }
+          else if(randomIconNumber == 9){
+              icon+= "taken_parking";
+              text = "<b>TAKEN</b> " + text;
+          }
+          else if(randomIconNumber == 10){
+              icon+= "taken_parking_bicycle";
+              text = "<b>TAKEN</b> " + text;
+          }
+          else if(randomIconNumber == 11){
+              icon+= "taken_parking_disabled";
+              text = "<b>TAKEN</b> " + text;
+          }
+          else if(randomIconNumber == 12){
+              icon+= "taken_parking_garage";
+              text = "<b>TAKEN</b> " + text;
+          }
+          
+          
+          
+          
+          
           self.addPin(map, new google.maps.LatLng(obj.Y, obj.X), icon, text);
       });
       

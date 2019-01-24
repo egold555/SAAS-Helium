@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { SignupPage } from '../signup/signup';
 
 /**
  * Generated class for the LoginPage page.
@@ -26,6 +27,15 @@ export class LoginPage {
     login() {
         console.log("Login clicked");
         this.navCtrl.setRoot(HomePage);
+    }
+    
+    signup() {
+        console.log("Signup clicked");
+        this.navCtrl.setRoot(SignupPage);
+    }
+    
+    forgot() {
+        console.log("Forgot password clicked");
     }
 
 }

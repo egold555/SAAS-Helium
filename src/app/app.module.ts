@@ -8,6 +8,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 import { MapsComponent } from '../components/maps/maps';
 
@@ -18,6 +19,7 @@ import {HttpModule} from '@angular/http';
     MyApp,
     HomePage,
     LoginPage,
+      SignupPage,
     MapsComponent
   ],
   imports: [
@@ -30,6 +32,7 @@ import {HttpModule} from '@angular/http';
     MyApp,
     HomePage,
     LoginPage,
+      SignupPage,
     MapsComponent
   ],
   providers: [

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,7 +20,7 @@ export class MyApp {
   sublevel1='no';
 
 
-  rootPage: any = LoginPage;
+  rootPage: any = SignupPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -94,4 +95,9 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+    
+    logout(){
+        console.log("logout");
+        this.nav.setRoot(LoginPage);
+    }
 }
